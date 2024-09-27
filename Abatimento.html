@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abatimentos de Parcelas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <nav>
+        <div class="titulo">
+            <img src="imagens/images.png" alt="">
+            <h1>Controle de Abatimentos de Parcelas</h1>
+
+        </div>
+
+    </nav>
+
+
+
+    <header class="container">
+        <div class="menu">
+            <div class="carregarArquivo">
+                <div>
+                    <label for="upload">Faça o upload da planilha: </label>
+                    <input type="file" id="upload" accept=".xlsx">
+                    <button id="lerExcel">Ler Planilha</button>
+                </div>
+    
+    
+            </div>
+            <div class="abater">
+                <div>
+                    <label for="dataAbatimento">Data do abatimento (DD/MM/AAAA): </label>
+                    <input type="text" id="dataAbatimento" placeholder="00/00/000" required>
+                </div>
+                <div>
+                    <label for="valorAbatimento">Valor a ser abatido (em reais): </label>
+                    <input type="number" id="valorAbatimento" placeholder="000" required>
+                </div>
+                <div>
+                    <button id="adicionarAbatimento">Adicionar Abatimento</button>
+                </div>
+                <div>
+                    <button id="finalizarAbatimentos">Finalizar Abatimentos</button>
+                </div>
+    
+    
+            </div>
+    
+
+        </div>
+
+        
+    </header>
+    <!-- Upload da planilha -->
+
+
+
+    <!-- Inputs para os abatimentos -->
+    <main class="resultados" >
+
+        <div class="output" id="resultadoAbatimentos">
+            <h2>Abatimentos realizados nas parcelas</h2>
+            <div id="detalhesAbatimentos"></div>
+        </div>
+
+
+    </main>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

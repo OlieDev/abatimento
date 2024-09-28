@@ -4,7 +4,7 @@ let parcelas = []; // Variável para armazenar as parcelas lidas do Excel
 // Função para converter a data numérica do Excel para o formato legível
 function converterDataExcelParaDataLegivel(numeroExcel) {
     const dataInicial = new Date(1900, 0, 1); // Excel considera que 1 de janeiro de 1900 é o dia 1
-    const dataConvertida = new Date(dataInicial.getTime() + (numeroExcel - 1) * 24 * 60 * 60 * 1000);
+    const dataConvertida = new Date(dataInicial.getTime() + (numeroExcel - 2) * 24 * 60 * 60 * 1000);
     return dataConvertida.toLocaleDateString('pt-BR'); // Converte para formato DD/MM/YYYY
 }
 
@@ -55,6 +55,8 @@ document.getElementById('adicionarAbatimento').addEventListener('click', () => {
 
 // Finalizar abatimentos
 document.getElementById('finalizarAbatimentos').addEventListener('click', () => {
+    document.getElementById('tutorialPainel').style.display = 'none';
+    document.getElementById('result').style.display = 'block';
    
     
     if (abatimentos.length === 0) {
@@ -130,3 +132,31 @@ document.getElementById('finalizarAbatimentos').addEventListener('click', () => 
     document.getElementById('detalhesAbatimentos').innerHTML = detalhesHtml;
 });
 
+let slideIndex = 1;
+mostrarSlides(slideIndex);
+
+// Controles de próximo e anterior
+function mudarSlide(n) {
+    mostrarSlides(slideIndex += n);
+}
+
+// Controles de indicadores
+function definirSlide(n) {
+    mostrarSlides(slideIndex = n);
+}
+
+function mostrarSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+}

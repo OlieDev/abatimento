@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="imagex/png" href="imagens/logoweb.ico">
+    
     <title>Abatimentos de Parcelas</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="styles.css">
@@ -18,7 +20,7 @@
 <body>
     <nav>
         <div class="titulo">
-            <img src="images.png" alt="">
+            <img src="imagens/logo.png" alt="">
             <h1>Controle de Abatimentos de Parcelas</h1>
 
         </div>
@@ -63,11 +65,39 @@
         
     </header>
     <!-- Upload da planilha -->
-
+    <div class="tutorial" id="tutorialPainel">
+        <div class="slide-container">
+            <div class="slide fade">
+                <img src="assets/img/escolhaPlan.png" alt="Escolha o plano">
+            </div>
+            <div class="slide fade">
+                <img src="assets/img/LerAPlan.png" alt="Ler a planilha">
+            </div>
+            <div class="slide fade">
+                <img src="assets/img/dataEvalor.png" alt="Inserir data e valor">
+            </div>
+            <div class="slide fade">
+                <img src="assets/img/fim.png" alt="Finalizar">
+            </div>
+    
+            <!-- Botões de navegação -->
+            <a class="prev" onclick="mudarSlide(-1)">&#10094;</a>
+            <a class="next" onclick="mudarSlide(1)">&#10095;</a>
+        </div>
+    
+        <!-- Indicadores -->
+        <div class="indicadores">
+            <span class="dot" onclick="definirSlide(1)"></span>
+            <span class="dot" onclick="definirSlide(2)"></span>
+            <span class="dot" onclick="definirSlide(3)"></span>
+            <span class="dot" onclick="definirSlide(4)"></span>
+        </div>
+    </div>
+    
 
 
     <!-- Inputs para os abatimentos -->
-    <main class="resultados" >
+    <main class="resultados" id="result"  style="display: none;">
 
         <div class="output" id="resultadoAbatimentos">
             <h2>Abatimentos realizados nas parcelas</h2>
@@ -76,6 +106,12 @@
 
 
     </main>
+
+    <footer></footer>
+        <div class="copyright">
+            <p>&copy; 2024 - Escola ETPS - Controle de Abatimentos de Parcelas.Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
 
 
